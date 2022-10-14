@@ -14,6 +14,7 @@
 # so I'm using the best available HTML parser for this system ("html.parser").
 # This usually isn't a problem, but if you run this code on another system,
 # or in a different virtual environment, it may use a different parser and behave differently.
+# "lxml" is best for fastest result
 #
 #
 import urllib

@@ -16,8 +16,7 @@
 # or in a different virtual environment, it may use a different parser and behave differently.
 # "lxml" is best for fastest result
 #
-#
-import urllib
+#import urllib
 import traceback
 #
 from urllib import request
@@ -78,7 +77,8 @@ try:
 #            Version 1.16.0
             V = link
         else :
-            print (bcolors.OKCYAN + "Version Not Found in string" + bcolors.ENDC)
+            pass
+#            print (bcolors.OKCYAN + "Version Not Found in string" + bcolors.ENDC)
             #
         #
     print (" ")
@@ -89,11 +89,13 @@ try:
     #
 except Exception as e:
     print (" ")
-    print (bcolors.FAIL + "Oops!  Try again..." + bcolors.ENDC)
+#    print (bcolors.FAIL + "Oops!  Try again..." + bcolors.ENDC)
+    print ("Oops!  Try again...")
     print (" ")
     print (traceback.format_exc())
     return V
 except KeyboardInterrupt:
-    print (bcolors.WARNING + "ctrl + C Pressed" + bcolors.ENDC)
+#    print (bcolors.WARNING + "ctrl + C Pressed" + bcolors.ENDC)
+    print ("ctrl + C Pressed")
     return V
 # 

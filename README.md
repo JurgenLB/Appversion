@@ -1,7 +1,7 @@
 # Appversion
 retrieving Version from App in Appstore
 
-can be used as module
+can be used as module,
 output is 'string'
 <class 'str'>
 "Version 1.16.0"

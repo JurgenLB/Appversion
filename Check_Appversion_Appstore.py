@@ -30,12 +30,12 @@ except:
     sleep (1)
     from bs4 import BeautifulSoup
 #
-try:
-    from colorama import Fore, Style
-except:
-    Popen("sudo pip3 install colorama", shell=True, stdout=PIPE, stderr=PIPE)
-    sleep (1)
-    from colorama import Fore, Style
+#try:
+#    from colorama import Fore, Style
+#except:
+#    Popen("sudo pip3 install colorama", shell=True, stdout=PIPE, stderr=PIPE)
+#    sleep (1)
+#    from colorama import Fore, Style
 #
 app = "online Panasonic Comfort Cloud"
 url_app = "https://apps.apple.com/de/app/panasonic-comfort-cloud/id1348640525"

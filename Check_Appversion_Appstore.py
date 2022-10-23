@@ -19,9 +19,23 @@
 #import urllib
 import traceback
 #
-from urllib import request
-from bs4 import BeautifulSoup
+from subprocess import Popen, PIPE, STDOUT
 from time import sleep
+from urllib import request
+#
+try:
+    from bs4 import BeautifulSoup
+except:
+    Popen("sudo pip3 install bs4", shell=True, stdout=PIPE, stderr=PIPE)
+    sleep (1)
+    from bs4 import BeautifulSoup
+#
+try:
+    from colorama import Fore, Style
+except:
+    Popen("sudo pip3 install colorama", shell=True, stdout=PIPE, stderr=PIPE)
+    sleep (1)
+    from colorama import Fore, Style
 #
 app = "online Panasonic Comfort Cloud"
 url_app = "https://apps.apple.com/de/app/panasonic-comfort-cloud/id1348640525"
@@ -42,19 +56,21 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 #
-try:
-    print (". ") 
-    info = "check Version {}".format(app)
-    print (info)
-    print ("... ")
-    # https://apps.apple.com/de/app/panasonic-comfort-cloud/id1348640525
-    #
-    app_online = urllib.request.urlopen(url_app).read()
-    soup = BeautifulSoup(app_online, 'html.parser')
-#    soup = BeautifulSoup(app_online, 'lxml')
-#    soup = BeautifulSoup(app_online)
-    l = soup.find_all('p')
-    print ("..... ")
+def app_check(app, url_, v):
+    try:
+        print (". ") 
+        info = "check Version {}".format(app)
+        print (info)
+        print ("... ")
+        # https://apps.apple.com/de/app/panasonic-comfort-cloud/id1348640525
+        #
+#        app_online = urllib.request.urlopen(url_).read()
+        app_online = request.urlopen(url_).read()
+        soup = BeautifulSoup(app_online, 'html.parser')
+#        soup = BeautifulSoup(app_online, 'lxml')
+#        soup = BeautifulSoup(app_online)
+        l = soup.find_all('p')
+        print ("..... ")
 #    print (soup.prettify())
 #      <div class="l-row whats-new__content">
 #       <div class="l-column small-12 medium-3 large-4 small-valign-top whats-new__latest">
@@ -67,36 +83,40 @@ try:
 #         </p> 
 #        </div>
 #       </div>
-    for tag in l:
+        for tag in l:
 #        print (tag)
 # <p class="l-column small-6 medium-12 whats-new__latest__version">Version 1.16.0</p>
 #        link = tag.get('class',None)
-        link = str(tag.string)
-        if "Version" in link :
-            print (link)
+            link = str(tag.string)
+            if "Version" in link :
+                print (link)
 #            Version 1.16.0
-            V = link
-        else :
-            pass
-#            print (bcolors.OKCYAN + "Version Not Found in string" + bcolors.ENDC)
+                v = link
+            else :
+                pass
+#                print (bcolors.OKCYAN + "Version Not Found in string" + bcolors.ENDC)
+                #
             #
+        print (" ")
         #
-    print (" ")
-    app_info = "{} = {} ".format(app, V)
-    print (app_info)
-    print (" ")
-#    return V
-    #
-except Exception as e:
-    print (" ")
-#    print (bcolors.FAIL + "Oops!  Try again..." + bcolors.ENDC)
-    print ("Oops!  Try again...")
-    print (" ")
-    print (traceback.format_exc())
-#    return V
-except KeyboardInterrupt:
-#    print (bcolors.WARNING + "ctrl + C Pressed" + bcolors.ENDC)
-    print ("ctrl + C Pressed")
-
-#    return V
+    except Exception as e:
+        print (" ")
+#        print (bcolors.FAIL + "Oops!  Try again..." + bcolors.ENDC)
+        print ("Oops!  Try again...")
+        print (" ")
+        print (traceback.format_exc())
+#
+    except KeyboardInterrupt:
+#        print (bcolors.WARNING + "ctrl + C Pressed" + bcolors.ENDC)
+        print ("ctrl + C Pressed")
+    finally:
+        app_info = "{} = {} ".format(app, v)
+        print (app_info)
+        print (" ")
+        pcc_ = "online Panasonic Comfort Cloud = {} ".format(v)
+        print (pcc_)
+        print (" ")
+        return v
+#
+app_check(app, url_, V)
 # 

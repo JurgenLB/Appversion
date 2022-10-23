@@ -33,7 +33,6 @@ url_app = "https://apps.apple.com/de/app/panasonic-comfort-cloud/id1348640525"
 url_api = "https://api.appstoreconnect.apple.com/v1/apps/id1348640525/appStoreVersions"
 # https://api.appstoreconnect.apple.com/v1/apps/{id}/appStoreVersions
 #
-V = ()
 #
 def app_check(app, url_, v):
     try:

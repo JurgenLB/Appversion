@@ -113,9 +113,6 @@ def app_check(app, url_, v):
         app_info = "{} = {} ".format(app, v)
         print (app_info)
         print (" ")
-        pcc_ = "online Panasonic Comfort Cloud = {} ".format(v)
-        print (pcc_)
-        print (" ")
         return v
 #
 app_check(app, url_, V)

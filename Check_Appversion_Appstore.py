@@ -85,12 +85,15 @@ try:
     app_info = "{} = {} ".format(app, V)
     print (app_info)
     print (" ")
+    return V
     #
 except Exception as e:
     print (" ")
     print (bcolors.FAIL + "Oops!  Try again..." + bcolors.ENDC)
     print (" ")
     print (traceback.format_exc())
+    return V
 except KeyboardInterrupt:
     print (bcolors.WARNING + "ctrl + C Pressed" + bcolors.ENDC)
+    return V
 # 

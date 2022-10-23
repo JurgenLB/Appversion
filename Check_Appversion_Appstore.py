@@ -115,5 +115,5 @@ def app_check(app, url_, v):
         print (" ")
         return v
 #
-V = app_check(app, url_, V)
+#V = app_check(app, url_, V)
 #

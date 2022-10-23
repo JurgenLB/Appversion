@@ -85,7 +85,7 @@ try:
     app_info = "{} = {} ".format(app, V)
     print (app_info)
     print (" ")
-    return V
+#    return V
     #
 except Exception as e:
     print (" ")
@@ -93,9 +93,10 @@ except Exception as e:
     print ("Oops!  Try again...")
     print (" ")
     print (traceback.format_exc())
-    return V
+#    return V
 except KeyboardInterrupt:
 #    print (bcolors.WARNING + "ctrl + C Pressed" + bcolors.ENDC)
     print ("ctrl + C Pressed")
-    return V
+
+#    return V
 # 
